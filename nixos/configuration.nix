@@ -10,7 +10,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
+      inputs.home-manager.nixosModules.default
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -88,8 +88,8 @@
     ];
   };
 
-  # Import the home-manager config
   home-manager = {
+    # Pass inputs to home-manager modules
     extraSpecialArgs = { inherit inputs; };
     users = {
       darak = import ./home.nix;
