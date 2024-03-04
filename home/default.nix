@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./git.nix
     ./gnome.nix
     ./helix.nix
   ];
