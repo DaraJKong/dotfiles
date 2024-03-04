@@ -1,5 +1,4 @@
 {
-
   description = "My NixOS configuration";
 
   inputs = {
@@ -20,13 +19,16 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
-    let
-      system = "x86_64-linux";
-    in {
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+  in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs system; };
+        specialArgs = {inherit inputs system;};
         modules = [
           ./system/configuration.nix
           inputs.home-manager.nixosModules.default
@@ -34,5 +36,4 @@
       };
     };
   };
-
 }

@@ -1,12 +1,13 @@
-{ config, pkgs, lib, ... }:
-
 {
-
-  imports =
-    [
-      ./gnome.nix
-      ./helix.nix
-    ];
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  imports = [
+    ./gnome.nix
+    ./helix.nix
+  ];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -24,11 +25,11 @@
 
   # Set GNOME's keyboard layout
   dconf.settings = {
-      "org/gnome/desktop/input-sources" = {
-        show-all-sources = true;
-        sources = [ (lib.hm.gvariant.mkTuple [ "xkb" "ca" ]) ];
-        xkb-options = [ ];
-      };
+    "org/gnome/desktop/input-sources" = {
+      show-all-sources = true;
+      sources = [(lib.hm.gvariant.mkTuple ["xkb" "ca"])];
+      xkb-options = [];
+    };
   };
 
   # The home.packages option allows you to install Nix packages into your
