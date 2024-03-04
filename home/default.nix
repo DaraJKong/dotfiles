@@ -1,6 +1,13 @@
 { config, pkgs, lib, ... }:
 
 {
+
+  imports =
+    [
+      ./gnome.nix
+      ./helix.nix
+    ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "darak";
@@ -75,10 +82,6 @@
   #
   #  /etc/profiles/per-user/darak/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    # Set the default editor to Helix
-    EDITOR = "helix";
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
