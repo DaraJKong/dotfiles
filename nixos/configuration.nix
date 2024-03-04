@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ inputs, config, lib, pkgs, ... }:
 
 {
   # nix.nixPath = lib.mkDefault (lib.mkBefore [ "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos-unstable" ]);
@@ -10,6 +10,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.home-manager
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -87,6 +88,14 @@
     ];
   };
 
+  # Import the home-manager config
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      darak = import ./home.nix;
+    };
+  };
+  
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -98,9 +107,6 @@
     xclip
     helix
   ];
-
-  # Set the default editor to Helix
-  environment.variables.EDITOR = "helix";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
