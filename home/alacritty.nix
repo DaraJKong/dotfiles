@@ -3,7 +3,6 @@
   pkgs,
   lib,
   inputs,
-  theme,
   ...
 }: {
   # Install the alacritty-theme overlay
