@@ -92,6 +92,8 @@
   };
 
   home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
     # Pass inputs to home-manager modules
     extraSpecialArgs = {inherit inputs;};
     users = {
