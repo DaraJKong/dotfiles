@@ -26,6 +26,10 @@
     "org/gnome/desktop/screensaver" = {
       picture-uri = "/home/darak/.background-image";
     };
+    # Set GNOME's favorite apps
+    "org/gnome/shell" = {
+      favorite-apps = ["org.gnome.Calendar.desktop" "org.gnome.Music.desktop" "org.gnome.Nautilus.desktop" "Alacritty.desktop" "org.qutebrowser.qutebrowser.desktop"];
+    };
   };
 
   home.file.".background-image".source = theme.wallpaper;
