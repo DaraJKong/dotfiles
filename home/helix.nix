@@ -80,8 +80,4 @@
     rust-analyzer
     cargo
   ];
-
-  home.sessionVariables = {
-    EDITOR = "helix";
-  };
 }

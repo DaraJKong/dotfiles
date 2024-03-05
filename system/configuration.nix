@@ -95,7 +95,10 @@
     # Pass inputs to home-manager modules
     extraSpecialArgs = {inherit inputs;};
     users = {
-      darak = import ../home/default.nix;
+      darak = {
+        imports = [../home];
+        _module.args.theme = import ../theme;
+      };
     };
   };
 
@@ -107,6 +110,7 @@
   environment.systemPackages = with pkgs; [
     git
     wget
+    alacritty
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

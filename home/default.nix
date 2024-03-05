@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./alacritty.nix
     ./git.nix
     ./gnome.nix
     ./helix.nix
@@ -84,6 +85,10 @@
   #
   #  /etc/profiles/per-user/darak/etc/profile.d/hm-session-vars.sh
   #
+  home.sessionVariables = {
+    TERMINAL = "alacritty";
+    EDITOR = "helix";
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

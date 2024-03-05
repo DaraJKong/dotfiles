@@ -12,6 +12,7 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
     helix = {
       url = "github:helix-editor/helix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,7 +32,6 @@
         specialArgs = {inherit inputs system;};
         modules = [
           ./system/configuration.nix
-          inputs.home-manager.nixosModules.default
         ];
       };
     };
