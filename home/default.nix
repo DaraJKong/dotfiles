@@ -25,15 +25,6 @@
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  # Set GNOME's keyboard layout
-  dconf.settings = {
-    "org/gnome/desktop/input-sources" = {
-      show-all-sources = true;
-      sources = [(lib.hm.gvariant.mkTuple ["xkb" "ca"])];
-      xkb-options = [];
-    };
-  };
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
