@@ -8,11 +8,8 @@
       keybinds = {
         locked = {
           bind = {
-            _args = ["Ctrl f"];
-            LaunchOrFocusPlugin = {
-              _args = ["zellij:strider"];
-              floating = true;
-            };
+            _args = ["Ctrl t"];
+            ToggleFloatingPanes = [];
           };
         };
       };
