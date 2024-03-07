@@ -9,6 +9,7 @@
     ./git.nix
     ./gnome.nix
     ./helix.nix
+    ./nushell.nix
     ./qutebrowser.nix
     ./qb-theme.nix
     ./zellij.nix
@@ -82,6 +83,8 @@
   #
   home.sessionVariables = {
     TERMINAL = "alacritty";
+    SHELL = "nushell";
+    VISUAL = "helix";
     EDITOR = "helix";
     BROWSER = "qutebrowser";
   };

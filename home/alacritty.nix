@@ -11,10 +11,17 @@
   programs.alacritty = {
     enable = true;
     settings.import = [pkgs.alacritty-theme.catppuccin_mocha];
-    settings.font = {
-      normal = {
-        family = "FiraMono Nerd Font";
-        style = "Regular";
+    settings = {
+      window.startup_mode = "Maximized";
+      shell = {
+        program = "nu";
+        args = ["-n"];
+      };
+      font = {
+        normal = {
+          family = "FiraMono Nerd Font";
+          style = "Regular";
+        };
       };
     };
   };
