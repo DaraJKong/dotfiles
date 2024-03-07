@@ -37,15 +37,27 @@
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
   # Configure keymap in X11
   services.xserver.xkb.layout = "ca";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  # Tty options
   console = lib.mkDefault {
     font = "Lat2-Terminus16";
     keyMap = "ca";
     useXkbConfig = true; # use xkb.options in tty.
+  };
+
+  # Default fonts
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      serif = ["FiraCode Nerd Font"];
+      sansSerif = ["FiraCode Nerd Font"];
+      monospace = ["FiraMono Nerd Font"];
+    };
   };
 
   # Enable OpenGL
