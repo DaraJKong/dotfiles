@@ -20,5 +20,8 @@
       d = "diff";
       l = "log";
     };
+    extraConfig = {
+      core.editor = "hx";
+    };
   };
 }
