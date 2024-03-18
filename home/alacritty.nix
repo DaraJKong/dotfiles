@@ -13,10 +13,7 @@
     settings.import = [pkgs.alacritty-theme.catppuccin_mocha];
     settings = {
       window.startup_mode = "Maximized";
-      shell = {
-        program = "nu";
-        args = ["-n"];
-      };
+      shell = "nu";
       font = {
         normal = {
           family = "FiraMono Nerd Font";

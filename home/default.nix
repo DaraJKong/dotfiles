@@ -12,6 +12,7 @@
     ./nushell.nix
     ./qutebrowser.nix
     ./qb-theme.nix
+    ./starship.nix
     ./zellij.nix
   ];
 
