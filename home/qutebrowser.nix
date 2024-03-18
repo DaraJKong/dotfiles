@@ -26,6 +26,7 @@
       github = "https://github.com/";
 
       # AI tools
+      chatgpt = "https://chat.openai.com/";
       phind = "https://www.phind.com/search?home=true";
     };
   };
