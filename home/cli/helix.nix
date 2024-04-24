@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   inputs,
@@ -72,12 +71,4 @@
       };
     };
   };
-
-  home.packages = with pkgs; [
-    xclip
-    nil
-    alejandra
-    rust-analyzer
-    cargo
-  ];
 }

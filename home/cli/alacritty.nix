@@ -1,11 +1,8 @@
 {
-  config,
   pkgs,
-  lib,
   inputs,
   ...
 }: {
-  # Install the alacritty-theme overlay
   nixpkgs.overlays = [inputs.alacritty-theme.overlays.default];
 
   programs.alacritty = {
