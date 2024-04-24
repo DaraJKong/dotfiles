@@ -51,9 +51,9 @@
   #
   home.sessionVariables = {
     TERMINAL = "alacritty";
-    SHELL = "nushell";
-    VISUAL = "helix";
-    EDITOR = "helix";
+    SHELL = "nu";
+    VISUAL = "hx";
+    EDITOR = "hx";
     BROWSER = "qutebrowser";
   };
 
