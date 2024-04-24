@@ -101,6 +101,7 @@
     packages = with pkgs; [
       qutebrowser
       firefox
+      freeoffice
     ];
   };
 
