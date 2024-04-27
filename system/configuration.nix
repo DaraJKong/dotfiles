@@ -130,11 +130,11 @@
     git
     wget
     alacritty
-    (pkgs.rust-bin.stable.latest.default.override
-      {
-        extensions = ["rust-analyzer" "rust-src" "rust-std"];
-        targets = ["x86_64-unknown-linux-gnu" "wasm32-unknown-unknown"];
-      })
+    # (pkgs.rust-bin.stable.latest.default.override
+    #   {
+    #     extensions = ["rust-analyzer" "rust-src" "rust-std"];
+    #     targets = ["x86_64-unknown-linux-gnu" "wasm32-unknown-unknown"];
+    #   })
     (pkgs.rust-bin.selectLatestNightlyWith (toolchain:
       toolchain.default.override
       {

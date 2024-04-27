@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ./cli
     ./misc
@@ -55,6 +55,7 @@
     VISUAL = "hx";
     EDITOR = "hx";
     BROWSER = "qutebrowser";
+    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
   };
 
   # Let Home Manager install and manage itself.
