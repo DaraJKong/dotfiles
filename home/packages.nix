@@ -1,7 +1,12 @@
 {pkgs, ...}: {
-  nixpkgs.config.allowUnfree = false;
+  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    # inkscape
-    # gimp
+    audacity
+    blender
+    davinci-resolve
+    gimp
+    inkscape
+    krita
+    obs-studio
   ];
 }
