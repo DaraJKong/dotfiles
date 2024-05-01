@@ -15,6 +15,7 @@
     sqlx-cli
     tailwindcss
     tailwindcss-language-server
+    taplo
     xclip
   ];
 }

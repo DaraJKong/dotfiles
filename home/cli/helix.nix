@@ -62,11 +62,30 @@
           name = "nix";
           auto-format = true;
         }
+        {
+          name = "rust";
+          auto-format = true;
+        }
+        {
+          name = "toml";
+          auto-format = true;
+          formatter = {
+            command = lib.getExe pkgs.taplo;
+            args = ["fmt" "-"];
+          };
+        }
       ];
       language-server = {
         nil = {
           command = lib.getExe pkgs.nil;
           config.nil.formatting.command = ["${lib.getExe pkgs.alejandra}" "-q"];
+        };
+        rust-analyzer = {
+          check = {
+            command = lib.getExe pkgs.rust-analyzer;
+            extraArgs = ["--" "-W" "clippy::unwrap_used" "-W" "clippy::expect_used" "-W" "clippy::pedantic" "-W" "clippy::nursery"];
+          };
+          config.cargo.features = "all";
         };
       };
     };
