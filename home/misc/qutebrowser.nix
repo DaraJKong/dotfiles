@@ -7,6 +7,11 @@
         darkmode.policy.images = "never";
         preferred_color_scheme = "dark";
       };
+      content.autoplay = false;
+      content.blocking = {
+        enabled = true;
+        adblock.lists = ["https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters-2024.txt"];
+      };
     };
     quickmarks = {
       # Nix related
