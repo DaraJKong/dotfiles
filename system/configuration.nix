@@ -20,17 +20,17 @@
 
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
-  systemd.services.NetworkManager-wait-online.enable = false;
+  systemd.services.NetworkManager-wait-online.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Toronto";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -97,7 +97,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.darak = {
     isNormalUser = true;
-    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "networking"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       firefox
       freeoffice
