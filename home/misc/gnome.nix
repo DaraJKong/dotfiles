@@ -26,7 +26,7 @@
     };
     # Set GNOME's favorite apps
     "org/gnome/shell" = {
-      favorite-apps = ["org.gnome.Calendar.desktop" "org.gnome.Music.desktop" "org.gnome.Nautilus.desktop" "Alacritty.desktop" "org.qutebrowser.qutebrowser.desktop"];
+      favorite-apps = ["org.gnome.Calendar.desktop" "org.gnome.Music.desktop" "org.gnome.Nautilus.desktop" "Alacritty.desktop" "firefox.desktop" "org.qutebrowser.qutebrowser.desktop"];
     };
   };
 
