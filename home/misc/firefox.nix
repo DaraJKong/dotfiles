@@ -111,6 +111,7 @@ in {
       SearchBar = "unified"; # alternative: "separate"
       Preferences = {
         "browser.translations.automaticallyPopup" = lock-false;
+        "media.videocontrols.picture-in-picture.video-toggle.enabled" = lock-false;
       };
     };
     profiles = {
