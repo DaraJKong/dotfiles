@@ -54,7 +54,7 @@
     SHELL = "nu";
     VISUAL = "hx";
     EDITOR = "hx";
-    BROWSER = "qutebrowser";
+    BROWSER = "firefox";
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
   };
 
