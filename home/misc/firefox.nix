@@ -110,6 +110,7 @@ in {
       DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
       SearchBar = "unified"; # alternative: "separate"
       Preferences = {
+        "browser.newtabpage.activity-stream.feeds.section.topstories" = lock-false;
         "browser.translations.automaticallyPopup" = lock-false;
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = lock-false;
       };
@@ -120,7 +121,7 @@ in {
         name = "default";
         isDefault = true;
         settings = {
-          "browser.startup.homepage" = "https://duckduckgo.com/";
+          "browser.startup.homepage" = "";
           "browser.search.defaultenginename" = "DuckDuckGo";
           "browser.search.order.1" = "DuckDuckGo";
         };
