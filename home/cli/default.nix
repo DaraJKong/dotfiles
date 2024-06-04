@@ -2,6 +2,7 @@
   imports = [
     ./packages.nix
     ./alacritty.nix
+    ./direnv.nix
     ./git.nix
     ./helix.nix
     ./nushell.nix
