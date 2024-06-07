@@ -3,15 +3,12 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-
+    nixpkgs_daisyui.url = "github:NixOS/nixpkgs/dc763d353cdf5c5cd7bf2c7af4b750960e66cce7";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # devshell = {
-    #   url = "github:numtide/devshell";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    flake-utils.url = "github:numtide/flake-utils";
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,12 +29,22 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs_daisyui,
+    rust-overlay,
+    flake-utils,
     ...
   } @ inputs: let
     system = "x86_64-linux";
+    overlays = [(import rust-overlay)];
     pkgs = import nixpkgs {
+      inherit system overlays;
+    };
+    pkgs_daisyui = import nixpkgs_daisyui {
       inherit system;
     };
+    my-tailwindcss = pkgs.nodePackages.tailwindcss.overrideAttrs (oa: {
+      plugins = [pkgs_daisyui.daisyui];
+    });
   in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
@@ -49,33 +56,62 @@
     };
 
     devShells.${system} = {
-      "rust-stable" = {
-        name = "rust-stable";
-        commands = {};
-        env = {};
-        packages = with pkgs; [
-          alejandra
-          # cargo
-          cargo-leptos
-          clang
-          deadnix
-          leptosfmt
-          nil
-          openssl
-          pkg-config
-          # rust-analyzer
-          (rust-bin.stable.latest.default.override {
-            extensions = ["rust-analyzer" "rust-src" "rust-std" "rustfmt" "clippy"];
-            targets = ["x86_64-unknown-linux-gnu" "wasm32-unknown-unknown"];
-          })
-          sqlite
-          sqlx-cli
-          statix
-          tailwindcss
-          tailwindcss-language-server
-          taplo
-        ];
-      };
+      default = with pkgs;
+        mkShell {
+          shellHook = ''
+            export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";
+          '';
+          nativeBuildInputs = [
+            pkg-config
+          ];
+          buildInputs = [
+            git
+            clang
+            openssl
+            (rust-bin.stable.latest.default.override {
+              extensions = ["rust-src" "rust-std" "rust-analyzer" "rustfmt" "clippy"];
+              targets = ["x86_64-unknown-linux-gnu" "wasm32-unknown-unknown"];
+            })
+            sqlite
+            sqlx-cli
+            nil
+            alejandra
+            statix
+            deadnix
+            taplo
+          ];
+        };
+      "leptos-nightly" = with pkgs;
+        mkShell {
+          shellHook = ''
+            export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";
+          '';
+          nativeBuildInputs = [
+            pkg-config
+          ];
+          buildInputs = [
+            git
+            openssl
+            (rust-bin.selectLatestNightlyWith (toolchain:
+              toolchain.default.override {
+                extensions = ["rust-src" "rust-std" "rust-analyzer" "rustfmt" "clippy"];
+                targets = ["x86_64-unknown-linux-gnu" "wasm32-unknown-unknown"];
+              }))
+            trunk
+            cargo-leptos
+            leptosfmt
+            sqlite
+            sqlx-cli
+            nil
+            alejandra
+            statix
+            deadnix
+            taplo
+            sass
+            my-tailwindcss
+            tailwindcss-language-server
+          ];
+        };
     };
   };
 }

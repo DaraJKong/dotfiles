@@ -124,26 +124,12 @@
   # Enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  # Rust overlay
-  nixpkgs.overlays = [inputs.rust-overlay.overlays.default];
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
     wget
     alacritty
-    # (pkgs.rust-bin.stable.latest.default.override
-    #   {
-    #     extensions = ["rust-analyzer" "rust-src" "rust-std" "rustfmt" "clippy"];
-    #     targets = ["x86_64-unknown-linux-gnu" "wasm32-unknown-unknown"];
-    #   })
-    (pkgs.rust-bin.selectLatestNightlyWith (toolchain:
-      toolchain.default.override
-      {
-        extensions = ["rust-analyzer" "rust-src" "rust-std" "rustfmt" "clippy"];
-        targets = ["x86_64-unknown-linux-gnu" "wasm32-unknown-unknown"];
-      }))
   ];
 
   programs.steam.enable = true;

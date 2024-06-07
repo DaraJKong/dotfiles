@@ -1,21 +1,20 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     (pkgs.nerdfonts.override {fonts = ["FiraCode" "FiraMono"];})
-    alejandra
-    # cargo
-    cargo-leptos
-    clang
-    leptosfmt
-    nil
-    ripgrep
-    openssl
-    pkg-config
-    # rust-analyzer
-    sqlite
-    sqlx-cli
-    tailwindcss
-    tailwindcss-language-server
-    taplo
     xclip
+    ripgrep
+    # alejandra
+    # nil
+
+    # clang
+    # openssl
+    # pkg-config
+    # cargo-leptos
+    # sqlite
+    # sqlx-cli
+    # leptosfmt
+    # taplo
+    # tailwindcss
+    # tailwindcss-language-server
   ];
 }
