@@ -16,5 +16,8 @@
     obs-studio
     slack
     vlc
+
+    # Gaming
+    prismlauncher
   ];
 }
