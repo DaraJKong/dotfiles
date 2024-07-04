@@ -1,13 +1,20 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{...}: {
+  # Enable flakes
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = false;
+  };
+
+  nix = {
+    # Make builds run with low priority so my system stays responsive
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
+  };
+
+  system.autoUpgrade.enable = false;
+
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #
