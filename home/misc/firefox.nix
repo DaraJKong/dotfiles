@@ -156,17 +156,23 @@ in {
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = ["@np"];
             };
-            "Nix Package Versions" = {
-              urls = [{template = "https://lazamar.co.uk/nix-versions/?channel=nixpkgs-unstable&package={searchTerms}";}];
-              # iconUpdateURL = "https://nixos.wiki/favicon.png";
-              # updateInterval = 24 * 60 * 60 * 1000; # every day
-              definedAliases = ["@nv"];
-            };
             "NixOS Wiki" = {
               urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
               iconUpdateURL = "https://nixos.wiki/favicon.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = ["@nw"];
+            };
+            "Nix Package Versions" = {
+              urls = [{template = "https://lazamar.co.uk/nix-versions/?channel=nixpkgs-unstable&package={searchTerms}";}];
+              definedAliases = ["@nv"];
+            };
+            "Home Manager Options" = {
+              urls = [{template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";}];
+              definedAliases = ["@hmo"];
+            };
+            "Noogle" = {
+              urls = [{template = "https://noogle.dev/q?term={searchTerms}";}];
+              definedAliases = ["@nog"];
             };
             "Phind" = {
               urls = [{template = "https://www.phind.com/search?q={searchTerms}&ignoreSearchResults=false&allowMultiSearch=false";}];
