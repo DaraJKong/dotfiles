@@ -16,6 +16,7 @@
 
   home-manager = {imports}: {
     home-manager = {
+      backupFileExtension = "backup";
       useUserPackages = true;
       # useGlobalPkgs = true;
       extraSpecialArgs = {

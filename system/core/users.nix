@@ -5,7 +5,7 @@
     users = {
       darak = {
         isNormalUser = true;
-        extraGroups = ["wheel" "networking"]; # Enable ‘sudo’ for the user
+        extraGroups = ["wheel" "networking" "audio"]; # Enable ‘sudo’ for the user
         packages = with pkgs; [
           freeoffice
         ];
