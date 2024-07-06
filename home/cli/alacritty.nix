@@ -24,7 +24,7 @@
     alacritty-dev = {
       name = "AlacrittyDev";
       genericName = "Terminal";
-      exec = ''alacritty --title AlacrittyDev --hold --command zellij a -c dev'';
+      exec = ''alacritty --hold --command zellij a -c dev'';
       terminal = false;
       categories = ["System" "TerminalEmulator"];
     };

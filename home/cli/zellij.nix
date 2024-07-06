@@ -16,9 +16,21 @@
 
       keybinds = {
         locked = {
-          bind = {
-            _args = ["Ctrl t"];
+          "bind \"Ctrl t\"" = {
             ToggleFloatingPanes = [];
+          };
+          "bind \"Ctrl a\"" = {
+            LaunchOrFocusPlugin = {
+              _args = ["https://github.com/Nacho114/harpoon/releases/download/v0.1.0/harpoon.wasm"];
+              floating = true;
+              move_to_focused_tab = true;
+            };
+          };
+          "bind \"Ctrl y\"" = {
+            LaunchOrFocusPlugin = {
+              _args = ["https://github.com/imsnif/monocle/releases/download/v0.100.0/monocle.wasm"];
+              floating = true;
+            };
           };
         };
       };
