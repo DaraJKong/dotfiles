@@ -5,6 +5,7 @@
       $env.STARSHIP_SHELL = "nu"
 
       $env.ZELLIJ_AUTO_ATTACH = "false"
+      $env.ZELLIJ_WELCOME = "false"
       $env.ZELLIJ_AUTO_EXIT = "false"
     '';
     configFile.text = ''
@@ -15,9 +16,9 @@
       def start_zellij [] {
         if 'ZELLIJ' not-in ($env | columns) {
           if 'ZELLIJ_AUTO_ATTACH' in ($env | columns) and $env.ZELLIJ_AUTO_ATTACH == 'true' {
-            zellij attach -c
-          } else {
-            zellij
+            zellij attach -c dev
+          } else if 'ZELLIJ_WELCOME' in ($env | columns) and $env.ZELLIJ_WELCOME == 'true' {
+            zellij -l welcome
           }
 
           if 'ZELLIJ_AUTO_EXIT' in ($env | columns) and $env.ZELLIJ_AUTO_EXIT == 'true' {

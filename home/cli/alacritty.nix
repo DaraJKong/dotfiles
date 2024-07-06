@@ -20,6 +20,16 @@
     };
   };
 
+  xdg.desktopEntries = {
+    alacritty-dev = {
+      name = "AlacrittyDev";
+      genericName = "Terminal";
+      exec = ''alacritty --title AlacrittyDev --hold --command zellij a -c dev'';
+      terminal = false;
+      categories = ["System" "TerminalEmulator"];
+    };
+  };
+
   dconf.settings = {
     "org/gnome/desktop/default-applications" = {
       terminal = "alacritty";
