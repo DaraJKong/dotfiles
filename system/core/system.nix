@@ -51,6 +51,11 @@
 
     # Enable touchpad support (enabled default in most desktopManager).
     libinput.enable = true;
+    libinput.touchpad = {
+      tapping = true;
+      scrollMethod = "twofinger";
+      disableWhileTyping = true;
+    };
 
     udisks2.enable = true;
   };
