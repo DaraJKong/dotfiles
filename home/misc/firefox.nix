@@ -187,6 +187,7 @@ in {
           ublock-origin
           privacy-badger
           surfingkeys
+          tab-stash
           # darkreader
         ];
       };
