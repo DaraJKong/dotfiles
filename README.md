@@ -35,6 +35,7 @@ sudo nixos-rebuild test --flake .#okarin
 - [ ] Add laptop optimisations such as battery life (charging threshold), power saving, prevent over-heating
 - [ ] Fix Lemur Pro not resuming after suspend
 - [x] Configure touchpad
+- [ ] Optimise flake build-time by preventing multiple evaluations of nixpkgs
 - [ ] Fix unstable network/internet connection
 - [ ] Style every remaining thing with Catpuccin
 ### Long-term
