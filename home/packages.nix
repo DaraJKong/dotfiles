@@ -13,6 +13,7 @@
     musescore
     (inputs.muse-sounds-manager.packages.${pkgs.system}.muse-sounds-manager)
     obs-studio
+    rustdesk
     vlc
   ];
 }

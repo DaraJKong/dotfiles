@@ -3,6 +3,11 @@
     ./hardware-configuration.nix
   ];
 
+  services.rustdesk-server = {
+    enable = true;
+    relayIP = "0.0.0.1";
+  };
+
   nixpkgs.config.cudaSupport = true;
 
   # This value determines the NixOS release from which the default
