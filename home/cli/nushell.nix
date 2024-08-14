@@ -1,13 +1,16 @@
-{...}: {
+{config, ...}: {
   programs.nushell = {
     enable = true;
-    envFile.text = ''
-      $env.STARSHIP_SHELL = "nu"
+    environmentVariables =
+      {
+        STARSHIP_SHELL = "nu";
+        ZELLIJ_AUTO_ATTACH = "false";
+        ZELLIJ_WELCOME = "false";
+        ZELLIJ_AUTO_EXIT = "false";
 
-      $env.ZELLIJ_AUTO_ATTACH = "false"
-      $env.ZELLIJ_WELCOME = "false"
-      $env.ZELLIJ_AUTO_EXIT = "false"
-    '';
+        PATH = "($env.PATH | split row (char esep) | append ($env.HOME | path join '.local/bin'))";
+      }
+      // config.home.sessionVariables;
     configFile.text = ''
       def create_left_prompt [] {
         starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
