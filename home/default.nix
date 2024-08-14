@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./cli
+    ./dev
     ./misc
     ./packages.nix
   ];
