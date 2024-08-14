@@ -22,6 +22,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.rust-overlay.follows = "rust-overlay";
     };
+    blender-bin = {
+      url = "github:edolstra/nix-warez?dir=blender";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,8 +37,8 @@
     self,
     nixpkgs,
     nixpkgs_daisyui,
-    rust-overlay,
     flake-parts,
+    rust-overlay,
     ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} ({withSystem, ...}: {

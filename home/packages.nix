@@ -6,7 +6,6 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     audacity
-    blender
     davinci-resolve
     gimp
     inkscape

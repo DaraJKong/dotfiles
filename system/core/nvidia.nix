@@ -7,7 +7,8 @@
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-    # forceFullCompositionPipeline = true;
+    # Improve performance
+    forceFullCompositionPipeline = false;
     open = false;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
