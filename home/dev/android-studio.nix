@@ -10,7 +10,8 @@
   };
 in {
   home.packages = with pkgs; [
-    (android-studio.withSdk (androidComposition.androidsdk))
+    # (android-studio.withSdk (androidComposition.androidsdk))
+    android-studio
     android-tools
   ];
 

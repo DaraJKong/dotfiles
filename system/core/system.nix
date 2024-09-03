@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   ...
@@ -37,9 +38,9 @@
   };
 
   # Enable OpenGL
-  hardware.graphics = {
+  hardware.opengl = {
     enable = true;
-    enable32Bit = true;
+    driSupport32Bit = true;
   };
 
   services = {
@@ -88,8 +89,32 @@
     git
     wget
     alacritty
+    wineWowPackages.stable
+    libgig
+    lmms
+    vital
+    # Enable real-time audio performance settings
+    (inputs.musnix)
     # starship # TODO: having starship here means pkgs.startship will be stored during build and not during promptInit
   ];
+
+  environment.variables = let
+    makePluginPath = format:
+      (lib.makeSearchPath format [
+        "$HOME/.nix-profile/lib"
+        "/run/current-system/sw/lib"
+        "/etc/profiles/per-user/$USER/lib"
+        # "${pkgs.vital.outPath}"
+      ])
+      + ":$HOME/.${format}";
+  in {
+    DSSI_PATH = makePluginPath "dssi";
+    LADSPA_PATH = makePluginPath "ladspa";
+    LV2_PATH = makePluginPath "lv2";
+    LXVST_PATH = makePluginPath "lxvst";
+    VST_PATH = makePluginPath "vst";
+    VST3_PATH = makePluginPath "vst3";
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

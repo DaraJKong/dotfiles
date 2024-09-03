@@ -8,6 +8,9 @@
     relayIP = "0.0.0.1";
   };
 
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = ["darak"];
+
   nixpkgs.config.cudaSupport = true;
 
   # This value determines the NixOS release from which the default
